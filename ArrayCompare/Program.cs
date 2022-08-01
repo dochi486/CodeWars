@@ -14,50 +14,41 @@ namespace ArrayCompare
     }
 
 
-    // 배열 a와 b를 비교하는데
-
-    // b의 요소들이 모두 a의 요소들의 제곱값이라면 true
-
-    // 하나라도 다르면 false
-
-
     class AreTheySame
     {
         public static bool comp(int[] a, int[] b)
         {
-            bool isSame = false;
+            bool isContain = false;
 
             if (a == null)
                 return false;
             if (b == null)
                 return false;
 
-            for (int i = 0; i < b.Length; i++)
+            // 배열 a와 b를 비교하는데
+            // b의 요소가 모두 a의 요소들의 제곱값이라면 true
+
+            foreach (var item in b)
             {
-                for (int j = 0; j < a.Length; j++)
+                for (int i = 0; i < a.Length; i++)
                 {
-                    if (a[j] == Math.Sqrt(b[i]))
-                        isSame = true;
+                    if (a[i] == Math.Sqrt(item))
+                    {
+                        isContain = true;
+                        continue;
+                    }
                     else
-                        isSame = false;
+                    {
+                        isContain = false;
+                        continue;
+                    }
+                       
                 }
             }
 
-            //foreach (var item in b)
-            //{
-            //    //for (int i = 0; i < a.Length; i++)
-            //    //{
-            //    //    //if (item == Math.Pow(a[i], 2))
-            //    //    //    isSame &= true;
-            //    //    isSame = item == (Math.Pow(a[i], 2));
-            //    //}
-            //    //foreach (var value in a)
-            //    //{
-            //    //    if (Math.Sqrt(item) == value)
-            //    //        isSame = true;
-            //    //}
-            //}
-            return isSame;
+            // 하나라도 다르면 false
+
+            return isContain;
         }
     }
 }
