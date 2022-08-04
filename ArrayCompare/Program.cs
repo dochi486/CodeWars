@@ -32,7 +32,7 @@ namespace ArrayCompare
             {
                 for (int i = 0; i < a.Length; i++)
                 {
-                    if (a[i] == Math.Sqrt(item))
+                    if (item == Math.Pow(a[i],2))
                     {
                         isContain = true;
                         continue;
